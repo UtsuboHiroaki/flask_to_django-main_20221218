@@ -1,0 +1,30 @@
+footer {
+    border-top: 20px;
+    border-top: solid 1px #e6e6e6;
+}
+
+p.message {
+    margin-bottom:20px;
+}
+
+span.red-large {
+    font-size:1.2rem;
+    color:#cc0000;
+}
+
+span.bold {
+    font-weight: bold;
+}
+
+span.bg-yellow {
+    background-color: #ffff00;
+}
+
+footer ul {
+    display: flex;
+}
+
+footer ul li {
+    margin-left :20px;
+    margin-right: 20px;
+}

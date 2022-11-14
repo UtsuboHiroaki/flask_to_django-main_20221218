@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'favicon-gold.ico' %}">
+    <style>
+      ul {
+        list-style: none;
+      }
+
+      .ul-flex {
+        display: flex;
+      }
+
+      .metal_type {
+        width: 100px;
+        text-align: right;
+        margin-right: 10px
+      }
+
+      .buy {
+        width:100px;
+        text-align:right;
+      }
+      .sell {
+        width: 100px;
+        text-align: right;
+      }
+
+      .label {
+        text-align :center;
+      }
+
+    </style>
+    <title>Django貴金属へようこそ</title>
+</head>
+<body>
+<h1>Django貴金属へようこそ！</h1>
+<section class="section">
+  貴金属を高値で買い取ります。<br>
+  貴金属を最安値で販売します。<br>
+  <br>
+  本日の買取/販売価格は以下の通りです。(1グラムあたり単価)<br>
+  <ul>
+    <li id="title">
+      <ul class="ul-flex">
+        <li class="metal_type label">金属</li>
+        <li class="buy label">買い取り</li>
+        <li class="sell label">販売</li>
+      </ul>
+    </li>
+    {% for price in prices %}
+    <li id="{{ price.metal_type }}">
+      <ul class="ul-flex">
+        <li class="metal_type">{{ price.metal_type }}</li>
+        <li class="buy">{{ price.buy }}</li>
+        <li class="sell">{{ price.sell }}</li>
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+  <p>
+    <a href="{% url 'metal:buy' %}">貴金属を売る</a><br>
+    <a href="#">貴金属を買う(販売は休止しています)</a><br>
+    <a href="{% url 'main:index' %}">トップに戻る</a><br>
+  </p>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'favicon-gold.ico' %}">
+    <title>お取引ありがとうございます。</title>
+</head>
+<body>
+<section class="section">
+    お取引ありがとうございます。<br>
+    今後とも、ガラパゴス貴金属をよろしくお願いいたします。<br>
+</section>
+    <ul>
+        <li><a href="{% url 'main:index' %}">トップに戻る</a></li>
+        <li><a href="{% url 'main:about' %}">はじめての方へ</a></li>
+        <li><a href="{% url 'main:reference' %}">リファレンス</a></li>
+        <li><a href="#" target="_blank">運営者紹介</a></li>
+        <li><a href="#" target="_blank">お問い合わせ</a></li>
+    </ul>
+
+</body>
+</html>

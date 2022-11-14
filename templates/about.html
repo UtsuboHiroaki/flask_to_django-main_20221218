@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="{% static 'favicon-gold.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <title>Django貴金属/Django証券の合同サイトについて</title>
+</head>
+<body>
+<section class="section" id="main">
+    <h1>Django貴金属/Django証券の合同サイトについて</h1>
+    <p class="message">
+        このページは、HTMLページの基本構成やリクエスト/レスポンスについての解説のために作ったダミーページです
+    </p>
+    <p>
+        <span class="red-large normal">実在する企業のWEBサイトではありません</span><br>
+        <span class="red-large bold bg-yellow">貴金属/証券ほか、いかなる金融資産についての取引もできません</span>
+    </p>
+</section>
+<footer>
+    <ul>
+        <li><a href="{% url 'main:index' %}">トップに戻る</a></li>
+        <li><a href="{% url 'main:about' %}">はじめての方へ</a></li>
+        <li><a href="{% url 'main:reference' %}">リファレンス</a></li>
+        <li><a href="#" target="_blank">運営者</a></li>
+        <li><a href="#" target="_blank">お問い合わせ</a></li>
+    </ul>
+</footer>
+</body>
+</html>
