@@ -39,8 +39,8 @@
 5. fixture からデータをロード
 
     ```shell
-    python manage.py loaddata fixtures/metal_metaltype.json
-    python manage.py loaddata fixtures/stock_stocktype.json
+    python manage.py loaddata fixtures/metal_metal.json
+    python manage.py loaddata fixtures/stock_stock.json
     ```
 
 6. 管理画面ログイン用のスーパーユーザーを作成
