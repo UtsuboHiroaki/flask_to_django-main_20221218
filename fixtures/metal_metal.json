@@ -1,0 +1,29 @@
+[
+{
+  "model": "metal.metal",
+  "pk": 1,
+  "fields": {
+    "name": "gold",
+    "buy": 8685,
+    "sell": 8784
+  }
+},
+{
+  "model": "metal.metal",
+  "pk": 2,
+  "fields": {
+    "name": "platinum",
+    "buy": 4311,
+    "sell": 4475
+  }
+},
+{
+  "model": "metal.metal",
+  "pk": 3,
+  "fields": {
+    "name": "silver",
+    "buy": 99,
+    "sell": 104
+  }
+}
+]

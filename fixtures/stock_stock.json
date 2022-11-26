@@ -1,0 +1,38 @@
+[
+{
+  "model": "stock.stock",
+  "pk": 1,
+  "fields": {
+    "name": "toggle",
+    "buy": 102,
+    "sell": 105
+  }
+},
+{
+  "model": "stock.stock",
+  "pk": 2,
+  "fields": {
+    "name": "orange",
+    "buy": 150,
+    "sell": 157
+  }
+},
+{
+  "model": "stock.stock",
+  "pk": 3,
+  "fields": {
+    "name": "macrosoft",
+    "buy": 244,
+    "sell": 250
+  }
+},
+{
+  "model": "stock.stock",
+  "pk": 4,
+  "fields": {
+    "name": "nile",
+    "buy": 123,
+    "sell": 128
+  }
+}
+]
