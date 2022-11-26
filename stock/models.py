@@ -2,7 +2,7 @@ from django.db import models
 from django.utils import timezone
 
 
-class StockPrice(models.Model):
+class StockType(models.Model):
     """
     株価の情報
     """
@@ -20,7 +20,7 @@ class StockPurchase(models.Model):
     株の買取履歴
     """
 
-    stock_price = models.ForeignKey(StockPrice, verbose_name="銘柄名", on_delete=models.PROTECT)
+    stock_type = models.ForeignKey(StockType, verbose_name="銘柄名", on_delete=models.PROTECT)
     weight = models.PositiveIntegerField(verbose_name="株数", )
     email = models.EmailField(verbose_name="連絡先メールアドレス", max_length=255)
     name = models.CharField(verbose_name="お名前", max_length=255)

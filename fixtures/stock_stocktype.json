@@ -1,6 +1,6 @@
 [
 {
-  "model": "stock.stockprice",
+  "model": "stock.stocktype",
   "pk": 1,
   "fields": {
     "company_name": "toggle",
@@ -9,7 +9,7 @@
   }
 },
 {
-  "model": "stock.stockprice",
+  "model": "stock.stocktype",
   "pk": 2,
   "fields": {
     "company_name": "orange",
@@ -18,7 +18,7 @@
   }
 },
 {
-  "model": "stock.stockprice",
+  "model": "stock.stocktype",
   "pk": 3,
   "fields": {
     "company_name": "macrosoft",
@@ -27,7 +27,7 @@
   }
 },
 {
-  "model": "stock.stockprice",
+  "model": "stock.stocktype",
   "pk": 4,
   "fields": {
     "company_name": "nile",

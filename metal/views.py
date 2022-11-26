@@ -8,24 +8,24 @@ from django.urls import reverse
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import MetalPrice, MetalPurchase
+from .models import MetalType, MetalPurchase
 
 
 def metal_top_view(request):
-    prices = MetalPrice.objects.all()
+    prices = MetalType.objects.all()
     return render(request, 'metal/index.html', context={'prices': prices}, )
 
 
 def metal_buy_view(request):
     if request.method == 'GET':
-        items = MetalPrice.objects.all()
+        items = MetalType.objects.all()
         context = {"items": items}
         return render(request, 'metal/buy.html', context)
     elif request.method == 'POST':
         metal_type = request.POST['metal_type']
         try:
-            metal = MetalPrice.objects.get(metal_type=metal_type)
-        except MetalPrice.DoesNotExist:
+            metal = MetalType.objects.get(metal_type=metal_type)
+        except MetalType.DoesNotExist:
             messages.warning(request, f'Metal type does not exist: {metal_type}')
             return HttpResponseRedirect(reverse('metal:func_buy'))
         weight = request.POST['weight']
@@ -44,7 +44,7 @@ class MetalTopView(View):
     """トップページ"""
 
     def get(self, request, *args, **kwargs):
-        prices = MetalPrice.objects.all()
+        prices = MetalType.objects.all()
         context = {'prices': prices}
         return render(request, 'metal/index.html', context)
 
@@ -55,13 +55,13 @@ class MetalBuy(View):
     """
 
     def get(self, request, *args, **kwargs):
-        items = MetalPrice.objects.all()
+        items = MetalType.objects.all()
         context = {"items": items}
         return render(request, 'metal/buy.html', context)
 
     def post(self, request, *args, **kwargs):
         metal_type = request.POST['metal_type']
-        metal_type = MetalPrice.objects.get(metal_type=metal_type)
+        metal_type = MetalType.objects.get(metal_type=metal_type)
         weight = request.POST['weight']
         email = request.POST['email']
         name = request.POST['name']
@@ -80,14 +80,14 @@ class MetalInfoAPI(View):
     """
 
     def get(self, request, type_name, *args, **kwargs):
-        exist = MetalPrice.objects.filter(metal_type=type_name)
+        exist = MetalType.objects.filter(metal_type=type_name)
         if not exist:
             data = {'error': '受け付けられません。当店では扱っていない貴金属です。'}
             dump_params = {
                 "ensure_ascii": False
             }
             return JsonResponse(data, json_dumps_params=dump_params, status=404)
-        metal = MetalPrice.objects.get(metal_type=type_name)
+        metal = MetalType.objects.get(metal_type=type_name)
         data = {
             'id': metal.id,
             'metal_type': metal.metal_type,
@@ -103,7 +103,7 @@ class MetalAllInfoAPI(View):
     """
 
     def get(self, request, *args, **kwargs):
-        metals = MetalPrice.objects.all()
+        metals = MetalType.objects.all()
         result_dict = {}
         for metal in metals:
             result_dict[metal.id] = {'id': metal.id, 'metal_type': metal.metal_type, 'buy': metal.buy,
@@ -120,7 +120,7 @@ def MetalBuyAPI(request):
         }
         return JsonResponse({'error': 'POSTメソッドのみ受け付けています。'}, json_dumps_params=dump_params, status=404)
     data = json.loads(request.body)
-    exist = MetalPrice.objects.filter(metal_type=data['name'])
+    exist = MetalType.objects.filter(metal_type=data['name'])
     if not exist:
         dump_params = {
             "ensure_ascii": False
@@ -128,7 +128,7 @@ def MetalBuyAPI(request):
         data = {'error': '受け付けられません。当店では扱っていない貴金属です。'}
         return JsonResponse(data, json_dumps_params=dump_params, status=404)
 
-    metal_type = MetalPrice.objects.get(metal_type=data['name'])
+    metal_type = MetalType.objects.get(metal_type=data['name'])
     weight = data['amount']
     email = data['email']
     name = data['user']
@@ -156,7 +156,7 @@ def MetalBuyAPI(request):
 #     @method_decorator(ensure_csrf_cookie)
 #     def post(self, request, *args, **kwargs):
 #         metal_type = request.POST['metal_type']
-#         exist = MetalPrice.objects.filter(metal_type=metal_type)
+#         exist = MetalType.objects.filter(metal_type=metal_type)
 #         if not exist:
 #             dump_params = {
 #                 "ensure_ascii": False
@@ -164,7 +164,7 @@ def MetalBuyAPI(request):
 #             data = {'error': '受け付けられません。当店では扱っていない貴金属です。'}
 #             return JsonResponse(data, json_dumps_params=dump_params, status=404)
 #
-#         metal_type = MetalPrice.objects.get(metal_type=metal_type)
+#         metal_type = MetalType.objects.get(metal_type=metal_type)
 #         weight = request.POST['weight']
 #         email = request.POST['email']
 #         name = request.POST['name']

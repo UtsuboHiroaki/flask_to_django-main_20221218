@@ -3,11 +3,11 @@ from django.shortcuts import resolve_url, render, redirect
 from django.views.generic import ListView, CreateView
 
 from stock.forms import StockPurchaseForm
-from stock.models import StockPrice
+from stock.models import StockType
 
 
 class StockTopView(ListView):
-    model = StockPrice
+    model = StockType
     template_name = 'stock/index.html'
 
 
@@ -44,5 +44,5 @@ class StockBuy(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['stocks'] = StockPrice.objects.all()
+        context['stocks'] = StockType.objects.all()
         return context

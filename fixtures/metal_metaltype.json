@@ -1,27 +1,27 @@
 [
 {
-  "model": "metal.metalprice",
+  "model": "metal.metaltype",
   "pk": 1,
   "fields": {
-    "metal_type": "gold",
+    "metal_name": "gold",
     "buy": 8685,
     "sell": 8784
   }
 },
 {
-  "model": "metal.metalprice",
+  "model": "metal.metaltype",
   "pk": 2,
   "fields": {
-    "metal_type": "platinum",
+    "metal_name": "platinum",
     "buy": 4311,
     "sell": 4475
   }
 },
 {
-  "model": "metal.metalprice",
+  "model": "metal.metaltype",
   "pk": 3,
   "fields": {
-    "metal_type": "silver",
+    "metal_name": "silver",
     "buy": 99,
     "sell": 104
   }
