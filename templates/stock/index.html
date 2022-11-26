@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .ul-flex {
+            display: flex;
+        }
+
+        .company_name {
+            width: 100px;
+            text-align: right;
+            margin-right: 10px;
+        }
+
+        .buy {
+            width: 100px;
+            text-align: right;
+        }
+
+        .sell {
+            width: 100px;
+            text-align: right;
+        }
+
+        .label {
+            text-align: center;
+        }
+    </style>
+    <title>ガラパゴス証券へようこそ！</title>
+</head>
+<body>
+<h1>ガラパコス証券へようこそ！</h1>
+<section class="section">
+    株券を高値で買い取ります。<br>
+    株券を安値で販売します。<br>
+    <br>
+    只今の買取/販売価格は以下のとおりです。(1株あたり単価)<br>
+    <ul>
+        <li id="title">
+            <ul class="ul-flex">
+                <li class="company_name label">会社コード:</li>
+                <li class="buy label">買い取り</li>
+                <li class="sell label">販売</li>
+            </ul>
+        </li>
+        {% for object in object_list %}
+            <li id="{{ object.company_name }}">
+                <ul class="ul-flex">
+                    <li class="company_name">{{ object.company_name }}:</li>
+                    <li class="buy">{{ object.buy }}円</li>
+                    <li class="sell">{{ object.sell }}円</li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <p>
+        <a href="/stock/buy/">株券を売る</a><br>
+        <a href="#">株券を買う(販売は休止しています)</a><br>
+        <a href="/">トップに戻る</a><br/>
+    </p>
+</section>
+</body>
+</html>

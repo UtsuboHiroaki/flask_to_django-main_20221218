@@ -36,4 +36,3 @@ class MetalPurchase(models.Model):
 
     def __str__(self):
         return f'{str(self.metal_type)}_{str(self.created)}'
-
