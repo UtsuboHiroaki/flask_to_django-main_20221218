@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import resolve_url
 from django.views.generic import ListView, CreateView
 
@@ -13,6 +14,11 @@ class StockTopView(ListView):
 class StockBuy(CreateView):
     form_class = StockPurchaseForm
     template_name = 'stock/buy.html'
+
+    def form_invalid(self, form):
+        for key, value in form.errors.items():
+            messages.warning(self.request, f'{key}:{value[0]}')
+        return super().form_invalid(form)
 
     def get_success_url(self):
         return resolve_url('main:thanks')

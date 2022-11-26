@@ -5,12 +5,28 @@
     <meta charset="UTF-8">
     <link rel="icon" href="{% static 'favicon-gold.ico' %}">
     <title>お取引ありがとうございます。</title>
+    <style>
+        section.message-area > div.message.success {
+            background-color: green;
+            color: white;
+        }
+    </style>
 </head>
 <body>
+{% if messages %}
+    <section class="message-area">
+        {% for message in messages %}
+            <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                <p class="message-text">{{ message }}</p>
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}
 <section class="section">
     お取引ありがとうございます。<br>
     今後とも、ガラパゴス貴金属をよろしくお願いいたします。<br>
 </section>
+<div>
     <ul>
         <li><a href="{% url 'main:index' %}">トップに戻る</a></li>
         <li><a href="{% url 'main:about' %}">はじめての方へ</a></li>
@@ -18,6 +34,6 @@
         <li><a href="#" target="_blank">運営者紹介</a></li>
         <li><a href="#" target="_blank">お問い合わせ</a></li>
     </ul>
-
+</div>
 </body>
 </html>

@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class StockPrice(models.Model):
@@ -20,10 +21,10 @@ class StockPurchase(models.Model):
     """
 
     stock_price = models.ForeignKey(StockPrice, verbose_name="銘柄名", on_delete=models.PROTECT)
-    weight = models.PositiveIntegerField(verbose_name="株数", null=True, blank=True)
+    weight = models.PositiveIntegerField(verbose_name="株数", )
     email = models.EmailField(verbose_name="連絡先メールアドレス", max_length=255)
     name = models.CharField(verbose_name="お名前", max_length=255)
-    created = models.DateTimeField(verbose_name="取引日時", auto_now_add=True)
+    created = models.DateTimeField(verbose_name="取引日時", default=timezone.now)
 
     def __str__(self):
         return f'{str(self.stock_type)}_{str(self.created)}'

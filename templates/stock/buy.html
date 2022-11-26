@@ -15,11 +15,25 @@
         label {
             width: 200px;
         }
+
+        section.message-area > div.message.warning {
+            background-color: red;
+            color: white;
+        }
     </style>
     <title>ガラパゴス証券の買い取りページへようこそ！</title>
 </head>
 <body>
 <h1>ガラパゴス証券の買い取りページです</h1>
+{% if messages %}
+    <section class="message-area">
+        {% for message in messages %}
+            <div class="message {% if message.tags %}{{ message.tags }}{% endif %}">
+                <p class="message-text">{{ message }}</p>
+            </div>
+        {% endfor %}
+    </section>
+{% endif %}
 <section class="section">
     証券を買い取ります。<br>
     売りたい証券の情報を、以下のフォームに入力してください。<br>

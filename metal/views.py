@@ -1,5 +1,6 @@
 import json
 
+from django.contrib import messages
 from django.http import JsonResponse
 from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
@@ -8,6 +9,34 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import MetalPrice, MetalPurchase
+
+
+def metal_top_view(request):
+    prices = MetalPrice.objects.all()
+    return render(request, 'metal/index.html', context={'prices': prices}, )
+
+
+def metal_buy_view(request):
+    if request.method == 'GET':
+        items = MetalPrice.objects.all()
+        context = {"items": items}
+        return render(request, 'metal/buy.html', context)
+    elif request.method == 'POST':
+        metal_type = request.POST['metal_type']
+        try:
+            metal = MetalPrice.objects.get(metal_type=metal_type)
+        except MetalPrice.DoesNotExist:
+            messages.warning(request, f'Metal type does not exist: {metal_type}')
+            return HttpResponseRedirect(reverse('metal:func_buy'))
+        weight = request.POST['weight']
+        email = request.POST['email']
+        name = request.POST['name']
+
+        purchase = MetalPurchase(metal_type=metal, weight=weight, email=email, name=name)
+        purchase.save()
+
+        messages.success(request, '毎度ありがとうございます！')
+        return HttpResponseRedirect(reverse('main:thanks'))
 
 
 # Create your views here.
