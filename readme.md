@@ -76,3 +76,13 @@ manage.py コマンドでは、以下のように --settings=config.mysql オプ
     python manage.py migrate --settings=config.mysql
     python manage.py runserver --settings=config.mysql
     ```
+
+***
+
+データベーステーブルの簡易バックアップを以下のコマンドで生成できます。
+```shell
+python manage.py dumpdata metal.metal --indent 2 --format json > fixtures/metal_metal.json
+python manage.py dumpdata stock.stock --indent 2 --format json > fixtures/stock_stock.json
+```
+
+windows環境で作成した場合は、テキストエディタ等で開いて UTF-8 (BOMなし) に変換してください。
