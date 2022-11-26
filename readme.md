@@ -54,8 +54,25 @@
     ```shell
     python manage.py runserver
     ```
+   (サーバの終了は、 [Ctrl] + [C] で)
+
 
 8. ブラウザで管理画面にログイン
 
-   `http://127.0.0.1:8000/admin/` からログインできることを確かめる
+   `http://127.0.0.1:8000/admin/` からログインできることを確かめる  
+   ブラウザが開かない場合は、ローカルサーバを終了して、ポート番号を変更して再度起動してみてください。  
+   ブラウザが開かない場合は、ローカルサーバを終了して、ポート番号を変更して再度起動してみてください。  
+   以下は、ポート 8001 でサーバを起動する例です。
+   ```shell
+    python manage.py runserver 8001
+    ```
 
+***
+
+manage.py コマンドでは、以下のように --settings=config.mysql オプションをつけることで、 mysql のデータベースを使う設定で起動できます。  
+(ローカル環境へのmysqlデータベースのインストール/起動/データベースの作成が必要です)。
+
+    ```shell
+    python manage.py migrate --settings=config.mysql
+    python manage.py runserver --settings=config.mysql
+    ```
