@@ -1,16 +1,15 @@
 from django.contrib import admin
 
-from .models import StockType, StockPurchase
+from .models import Stock, StockPurchase
 
 
-@admin.register(StockType)
+@admin.register(Stock)
 class StockTypeAdmin(admin.ModelAdmin):
-    list_display = ('company_name', 'buy', 'sell')
+    list_display = ('name', 'buy', 'sell')
 
 
 @admin.register(StockPurchase)
 class StockPurchaseAdmin(admin.ModelAdmin):
-    list_display = ('stock_type', 'weight', 'email', 'name', 'created')
-    list_filter = ('stock_type', 'created')
-    search_fields = ('stock_type__company_name', 'email', 'name', 'created')
-
+    list_display = ('stock', 'weight', 'email', 'name', 'created')
+    list_filter = ('stock', 'created')
+    search_fields = ('stock__company_name', 'email', 'name', 'created')

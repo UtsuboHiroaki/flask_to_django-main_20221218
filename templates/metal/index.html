@@ -51,12 +51,12 @@
         <li class="sell label">販売</li>
       </ul>
     </li>
-    {% for price in prices %}
-    <li id="{{ price.metal_type }}">
+    {% for metal in metals %}
+    <li id="{{ metal.metal_name }}">
       <ul class="ul-flex">
-        <li class="metal_type">{{ price.metal_type }}</li>
-        <li class="buy">{{ price.buy }}</li>
-        <li class="sell">{{ price.sell }}</li>
+        <li class="metal_type">{{ metal.name }}</li>
+        <li class="buy">{{ metal.buy }}</li>
+        <li class="sell">{{ metal.sell }}</li>
       </ul>
     </li>
     {% endfor %}

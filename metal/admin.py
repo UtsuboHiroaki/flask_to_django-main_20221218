@@ -1,7 +1,7 @@
 from django.contrib import admin
 
-from .models import MetalType, MetalPurchase
+from .models import Metal, MetalPurchase
 
 # Register your models here.
-admin.site.register(MetalType)
+admin.site.register(Metal)
 admin.site.register(MetalPurchase)

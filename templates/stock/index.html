@@ -50,9 +50,9 @@
             </ul>
         </li>
         {% for object in object_list %}
-            <li id="{{ object.company_name }}">
+            <li id="{{ object.name }}">
                 <ul class="ul-flex">
-                    <li class="company_name">{{ object.company_name }}:</li>
+                    <li class="company_name">{{ object.name }}:</li>
                     <li class="buy">{{ object.buy }}円</li>
                     <li class="sell">{{ object.sell }}円</li>
                 </ul>

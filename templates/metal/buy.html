@@ -27,8 +27,8 @@
             {% csrf_token %}
             <div class="field">
                 <label for="metal_type">金属:</label>
-                {% for item in items %}
-                <input type="radio" name="metal_type" id="{{ item.metal_type }}" value="{{ item.metal_type }}">{{ item.metal_type }}
+                {% for metal in metals %}
+                    <input type="radio" name="metal_name" id="{{ metal.name }}" value="{{ metal.name }}">{{ metal.name }}
                 {% endfor %}
             </div>
             <div class="field">
