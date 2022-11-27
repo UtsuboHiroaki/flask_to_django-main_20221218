@@ -69,20 +69,41 @@
 
 ***
 
-manage.py コマンドでは、以下のように --settings=config.mysql オプションをつけることで、 mysql のデータベースを使う設定で起動できます。  
-(ローカル環境へのmysqlデータベースのインストール/起動/データベースの作成が必要です)。
-
-    ```shell
-    python manage.py migrate --settings=config.mysql
-    python manage.py runserver --settings=config.mysql
-    ```
-
-***
+## fixtures ディレクトリ内にある、jsonファイルについて
 
 データベーステーブルの簡易バックアップを以下のコマンドで生成できます。
+
 ```shell
 python manage.py dumpdata metal.metal --indent 2 --format json > fixtures/metal_metal.json
 python manage.py dumpdata stock.stock --indent 2 --format json > fixtures/stock_stock.json
 ```
 
 windows環境で作成した場合は、テキストエディタ等で開いて UTF-8 (BOMなし) に変換してください。
+
+***
+
+## 更新メモ
+
+### 2022/11/27 15:00
+
+- mysql用のライブラリと、関連の設定ファイルを削除しました  
+  Mac, Linux では mysqlclient のインストールが一筋縄ではいかないので、 requirements.txt から削除しました。  
+  関連で、 config/mysql.py を削除しました。  
+  この readme.md からも関連の記述を削除しました。
+
+### katoさんが当初リリースされた版からの主要な変更点というか、見どころメモ:
+
+| ファイルパス          | 変更点                                          |
+|-----------------|----------------------------------------------|
+| metal/models.py | データベースの列名を変更した。                              |
+| metal/views.py  | 新規にページを追加した。|
+| metal/urls.py   | views.py での変更を反映。                            |
+
+| url          | 変更点
+|--------------|------------------------------------|
+| /metal/_/    | /metal/ の関数 view 版                 |
+| /metal/_buy/ | /metal/buy/ の関数 view 版             |
+| /metal/buy/  | 購入完了時に thanks ページでメッセージを表示するようにした。 |
+| /stock/      | 新規追加。                              |
+| /stock/buy/  | 新規追加。クラスベースのview。                  |
+| /stock/_buy/ | 新規追加。関数ベースのview。                   |
