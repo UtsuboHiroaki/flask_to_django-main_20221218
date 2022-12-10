@@ -10,64 +10,69 @@
 
    ```git clone https://github.com/k-brahma/flask_to_django.git .```
 
+***
+
 ## 起動まで
 
 1. 仮想環境を作る
 
-    ``` shell
-    python -m venv venv
-   ```
+``` shell
+python -m venv venv
+```
 
 2. 仮想環境に入る
 
-    ``` shell
-   venv\Scripts\activate
-   ```
+``` shell
+venv\Scripts\activate
+```
 
 3. 必要なパッケージをインストール
 
-    ```shell
-    pip install -r requirements.txt
-    ```
+```shell
+pip install -r requirements.txt
+```
 
 4. マイグレーション
 
-    ```shell
-    python manage.py migrate
-    ```
+```shell
+python manage.py migrate
+```
 
-5. fixture からデータをロード
+5. ローカルサーバーを起動
 
-    ```shell
-    python manage.py loaddata fixtures/metal_metal.json
-    python manage.py loaddata fixtures/stock_stock.json
-    ```
+```shell
+python manage.py runserver
+```
 
-6. 管理画面ログイン用のスーパーユーザーを作成
+(サーバの終了は、 [Ctrl] + [C] で)
 
-    ```shell
-    python manage.py createsuperuser
-    ```
+6. ブラウザで管理画面にログイン
 
-7. ローカルサーバーを起動
+`http://127.0.0.1:8000/admin/` からログインできることを確かめる  
+ブラウザが開かない場合は、ローカルサーバを終了して、ポート番号を変更して再度起動してみてください。  
+ブラウザが開かない場合は、ローカルサーバを終了して、ポート番号を変更して再度起動してみてください。  
+以下は、ポート 8001 でサーバを起動する例です。
 
-    ```shell
-    python manage.py runserver
-    ```
-   (サーバの終了は、 [Ctrl] + [C] で)
-
-
-8. ブラウザで管理画面にログイン
-
-   `http://127.0.0.1:8000/admin/` からログインできることを確かめる  
-   ブラウザが開かない場合は、ローカルサーバを終了して、ポート番号を変更して再度起動してみてください。  
-   ブラウザが開かない場合は、ローカルサーバを終了して、ポート番号を変更して再度起動してみてください。  
-   以下は、ポート 8001 でサーバを起動する例です。
-   ```shell
-    python manage.py runserver 8001
-    ```
+```shell
+python manage.py runserver 8001
+```
 
 ***
+
+## データの投入
+
+1. 管理画面ログイン用のスーパーユーザーを作成
+
+```shell
+python manage.py createsuperuser
+```
+
+2. fixture からデータをロード
+
+```shell
+python manage.py loaddata fixtures/metal_metal.json
+python manage.py loaddata fixtures/stock_stock.json
+```
 
 ## fixtures ディレクトリ内にある、jsonファイルについて
 
@@ -91,7 +96,7 @@ windows環境で作成した場合は、テキストエディタ等で開いて 
   関連で、 config/mysql.py を削除しました。  
   この readme.md からも関連の記述を削除しました。
 
-### katoさんが当初リリースされた版からの主要な変更点というか、見どころメモ:
+#### katoさんが当初リリースされた版からの主要な変更点というか、見どころメモ:
 
 | ファイルパス          | 変更点                                          |
 |-----------------|----------------------------------------------|
@@ -107,3 +112,7 @@ windows環境で作成した場合は、テキストエディタ等で開いて 
 | /stock/      | 新規追加。                              |
 | /stock/buy/  | 新規追加。クラスベースのview。                  |
 | /stock/_buy/ | 新規追加。関数ベースのview。                   |
+
+### 2022/12/11 08:00
+
+django-debug-toolbar を導入しました。  

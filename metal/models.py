@@ -9,9 +9,6 @@ class Metal(models.Model):
     1gあたりの価格を示す
     """
 
-    class Meta:
-        db_table = "metal"
-
     name = models.CharField(verbose_name="金属名", max_length=100)
     buy = models.PositiveIntegerField(verbose_name="買値", null=True, blank=True)
     sell = models.PositiveIntegerField(verbose_name='売値', null=True, blank=True)
@@ -24,9 +21,6 @@ class MetalPurchase(models.Model):
     """
     貴金属の買取履歴
     """
-
-    class Meta:
-        db_table = "purchase"
 
     metal = models.ForeignKey(Metal, verbose_name="金属名", on_delete=models.PROTECT)
     weight = models.PositiveIntegerField(verbose_name="重量", null=True, blank=True)

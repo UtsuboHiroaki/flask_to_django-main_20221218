@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'metal.apps.MetalConfig',
     'main.apps.MainConfig',
     'stock.apps.StockConfig',
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -76,7 +78,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db2.sqlite3',
+        'NAME': BASE_DIR / 'db3.sqlite3',
     }
 }
 
@@ -137,19 +139,19 @@ LOGGING = {
     },
     # ハンドラ
     'handlers': {
-        # 　コンソール出力用ハンドラ
+        # コンソール出力用ハンドラ
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'develop',
         },
     },
     # ロガー
     'loggers': {
-        # 　自作アプリケーション全般のログを拾うロガー
+        # 自作アプリケーション全般のログを拾うロガー
         '': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': False,
         },
         # Django本体が出すログ全般を拾うロガー
@@ -160,8 +162,10 @@ LOGGING = {
         },
         'django.db.backends': {
             'handlers': ['console'],
-            'level': 'DEBUG',
+            'level': 'INFO',
             'propagate': False,
         }
     }
 }
+
+INTERNAL_IPS = ['127.0.0.1', ]
