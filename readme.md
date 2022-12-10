@@ -57,6 +57,8 @@ python manage.py runserver
 python manage.py runserver 8001
 ```
 
+動作確認できたら、 [Ctrl] + [C] でいったんサーバを止める。
+
 ***
 
 ## データの投入

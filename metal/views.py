@@ -144,6 +144,17 @@ def metal_buy_api(request):
     }
     return JsonResponse(data)
 
+
+class MetalPurchaseList(View):
+    """
+    買取リストを表示する
+    """
+
+    def get(self, request, *args, **kwargs):
+        purchase_list = MetalPurchase.objects.all().select_related('metal')
+        context = {'purchase_list': purchase_list}
+        return render(request, 'metal/purchase_list.html', context)
+
 # class MetalBuyAPI(View):
 #     """
 #     貴金属買取API

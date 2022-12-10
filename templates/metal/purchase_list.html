@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'favicon-gold.ico' %}">
+    <style>
+        ul {
+            list-style: none;
+        }
+
+        .ul-flex {
+            display: grid;
+            grid-template-columns: 30px 90px 75px 75px 300px 125px 175px;
+        }
+
+        .metal_type {
+            width: 100px;
+            text-align: right;
+            margin-right: 10px
+        }
+
+        .buy {
+            width:100px;
+            text-align:right;
+        }
+        .sell {
+            width: 100px;
+            text-align: right;
+        }
+
+        .label {
+            text-align :center;
+        }
+
+    </style>
+    <title>Django貴金属の取引記録</title>
+</head>
+<body>
+<h1>Django貴金属の取引記録ページです</h1>
+<section class="section">
+    本来は、管理者しか見れないページですが、今回は、誰でも見れるようにしています。<br>
+    <ul>
+        <li id="title">
+            <ul class="ul-flex">
+                <li class="purchase-id">id</li>
+                <li class="purchase-metal">金属</li>
+                <li class="purchase-total-price">単価</li>
+                <li class="purchase-weight">重量</li>
+                <li class="purchase-email">email</li>
+                <li class="purchase-name">name</li>
+                <li class="purchase-created">created</li>
+            </ul>
+        </li>
+        {% for purchase in purchase_list %}
+            <li id="{{ purchase.id }}">
+                <ul class="ul-flex">
+                    <li class="purchase-id">{{ purchase.id }}</li>
+                    <li class="purchase-id">{{ purchase.metal.name }}</li>
+                    <li class="purchase-id">{{ purchase.metal.buy }}</li>
+                    <li class="purchase-weight">{{ purchase.weight }}</li>
+                    <li class="purchase-email">{{ purchase.email }}</li>
+                    <li class="purchase-name">{{ purchase.name }}</li>
+                    <li class="purchase-created">{{ purchase.created|date:'Y/m/d H:i' }}</li>
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+    <p>
+        <a href="{% url 'metal:buy' %}">貴金属を売る</a><br>
+        <a href="#">貴金属を買う(販売は休止しています)</a><br>
+        <a href="{% url 'main:index' %}">トップに戻る</a><br>
+    </p>
+
+</section>
+
+</body>
+</html>
