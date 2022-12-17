@@ -3,12 +3,18 @@ import json
 from django.contrib import messages
 from django.http import JsonResponse
 from django.http.response import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, resolve_url
 from django.urls import reverse
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import DetailView
 
 from .models import Metal, MetalPurchase
+
+
+def redirect_func(request):
+    """ 関数ベースビューのリダイレクト例 """
+    return HttpResponseRedirect(resolve_url('metal:index'))
 
 
 def metal_top_view(request):
@@ -47,6 +53,13 @@ class MetalTopView(View):
         metals = Metal.objects.all()
         context = {'metals': metals}
         return render(request, 'metal/index.html', context)
+
+
+class MetalDetail(DetailView):
+    """詳細ページ"""
+
+    model = Metal
+    template_name = 'metal/detail.html'
 
 
 class MetalBuy(View):

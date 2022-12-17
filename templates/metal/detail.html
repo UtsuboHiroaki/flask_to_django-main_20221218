@@ -63,16 +63,14 @@
                 <li class="detail label">詳細ページへのリンク</li>
             </ul>
         </li>
-        {% for metal in metals %}
-            <li id="{{ metal.metal_name }}">
-                <ul class="ul-flex">
-                    <li class="metal_type">{{ metal.name }}</li>
-                    <li class="buy">{{ metal.buy }}</li>
-                    <li class="sell">{{ metal.sell }}</li>
-                    <li class="detail"><a href="{% url 'metal:detail' pk=metal.pk %}">リンク</a></li>
-                </ul>
-            </li>
-        {% endfor %}
+        <li id="{{ metal.metal_name }}">
+            <ul class="ul-flex">
+                <li class="metal_type">{{ metal.name }}</li>
+                <li class="buy">{{ metal.buy }}</li>
+                <li class="sell">{{ metal.sell }}</li>
+                <li class="detail"><a href="{% url 'metal:detail' pk=metal.pk %}">リンク</a></li>
+            </ul>
+        </li>
     </ul>
     <p class="links">
         <a href="{% url 'metal:buy' %}">貴金属を売る</a><br>

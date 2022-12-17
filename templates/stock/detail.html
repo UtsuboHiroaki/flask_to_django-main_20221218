@@ -43,10 +43,10 @@
             margin-top: 30px;
         }
     </style>
-    <title>ガラパゴス証券へようこそ！</title>
+    <title>ガラパゴス証券で売買できる「{{ stock.name }}」株の紹介です！</title>
 </head>
 <body>
-<h1>ガラパコス証券へようこそ！</h1>
+<h1>ガラパゴス証券で売買できる「{{ stock.name }}」株の紹介です！</h1>
 <section class="section">
     株券を高値で買い取ります。<br>
     株券を安値で販売します。<br>
@@ -61,16 +61,14 @@
                 <li class="detail label">詳細ページへのリンク</li>
             </ul>
         </li>
-        {% for object in object_list %}
-            <li id="{{ object.name }}">
-                <ul class="ul-flex">
-                    <li class="company_name">{{ object.name }}:</li>
-                    <li class="buy">{{ object.buy }}円</li>
-                    <li class="sell">{{ object.sell }}円</li>
-                    <li class="detail"><a href="{% url 'stock:detail' pk=object.pk %}">リンク</a></li>
-                </ul>
-            </li>
-        {% endfor %}
+        <li id="{{ stock.name }}">
+            <ul class="ul-flex">
+                <li class="company_name">{{ stock.name }}:</li>
+                <li class="buy">{{ stock.buy }}円</li>
+                <li class="sell">{{ stock.sell }}円</li>
+                <li class="detail"><a href="{% url 'stock:detail' pk=stock.pk %}">リンク</a></li>
+            </ul>
+        </li>
     </ul>
     <p class="links">
         <a href="/stock/buy/">株券を売る</a><br>

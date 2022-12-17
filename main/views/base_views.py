@@ -29,6 +29,7 @@ class ReferenceView(View):
         }
         return render(request, 'reference.html', context)
 
+
 class ThanksView(TemplateView):
     """このサイトについて"""
     template_name = "buy_thanks.html"

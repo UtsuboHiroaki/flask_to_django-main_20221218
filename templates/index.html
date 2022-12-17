@@ -17,7 +17,7 @@
         }
 
         div#company-link-area {
-            background-color:mediumturquoise;
+            background-color: mediumturquoise;
             border: darkblue 1px solid;
             margin: 20px;
             padding: 20px;
@@ -26,6 +26,16 @@
         a.company-link:hover {
             color: crimson;
             background-color: gold;
+        }
+
+        #view-basic-samples ul li ul {
+            display: flex;
+            margin-bottom: 30px;
+        }
+
+        #view-basic-samples ul li {
+            margin-left: 20px;
+            margin-right: 20px;
         }
 
         footer ul {
@@ -47,12 +57,62 @@
     <div id="company-link-area">
         <p>このドメインでは、以下の会社がウェブサイトを運営しています</p>
         <div class="company-info">
-            <a href="{% url 'metal:index' %}" id="django-metal" class="company-link metal">Django貴金属株式会社</a><br>
+            <a href="{% url 'metal:redirect' %}" id="django-metal" class="company-link metal">
+                Django貴金属株式会社
+            </a><br>
         </div>
         <div class="company-info">
-            <a href="{% url 'stock:index' %}" id="django-stock" class="company-link stock">Django証券株式会社</a>
+            <a href="{% url 'stock:redirect' %}" id="django-stock" class="company-link stock">
+                Django証券株式会社
+            </a>
         </div>
     </div>
+</section>
+<section class="section" id="view-basic-samples">
+    <ul>
+        <li>
+            <span>正常系のサンプル</span>
+            <ul>
+                <li><a href="{% url 'main:sample01' %}">sample01</a></li>
+                <li><a href="{% url 'main:sample11' %}">sample11</a></li>
+                <li><a href="{% url 'main:sample12' %}">sample12</a></li>
+                <li><a href="{% url 'main:sample13' %}">sample13</a></li>
+                <li><a href="{% url 'main:sample21' %}">sample21</a></li>
+                <li><a href="{% url 'main:sample22' %}">sample22</a></li>
+                <li><a href="{% url 'main:sample23' %}">sample23</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>404エラーのサンプル(not found)</span>
+            <ul>
+                <li><a href="/hoge/fuga/">404(通常)</a></li>
+                <li><a href="{% url 'stock:detail' pk=100 %}">404(raise)</a></li>
+                <li><a href="{% url 'metal:detail' pk=100 %}">404(get_object_or_404)</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>403エラーのサンプル(forbidden)</span>
+            <ul>
+                <li><a href="{% url 'main:normal_403' %}">403(通常)</a></li>
+                <li><a href="{% url 'main:normal_403_class' %}">403(HttpResponseForbidden)</a></li>
+                <li><a href="{% url 'main:raise_403' %}">403(raise)</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>400エラーのサンプル(bad request)</span>
+            <ul>
+                <li><a href="{% url 'main:normal_400' %}">400(ステータスコード指定)</a></li>
+                <li><a href="{% url 'main:normal_400_class' %}">400(BadRequest)</a></li>
+                <li><a href="{% url 'main:raise_400' %}">400(raise)</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>500エラーのサンプル(internal server error)</span>
+            <ul>
+                <li><a href="{% url 'main:raise_500' %}">500(raise)</a></li>
+            </ul>
+        </li>
+    </ul>
 </section>
 <footer class="footer-area">
     <ul>
