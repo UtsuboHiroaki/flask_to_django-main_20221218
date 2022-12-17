@@ -52,14 +52,6 @@ python manage.py runserver
 
 動作確認できたら、 [Ctrl] + [C] でいったんサーバを止める。
 
-> 補足:  
-> ブラウザが開かない場合は、ローカルサーバを終了して、ポート番号を変更して再度起動してみてください。  
-> 以下は、ポート 8001 でサーバを起動する例です。
->
-> ```shell
-> python manage.py runserver 8001
-> ```
-
 ***
 
 ## サンプルデータの投入
@@ -77,55 +69,37 @@ python manage.py loaddata fixtures/metal_metal.json
 python manage.py loaddata fixtures/stock_stock.json
 ```
 
-## fixtures ディレクトリ内にある、jsonファイルについて
-
-データベーステーブルの簡易バックアップを以下のコマンドで生成できます。
-
-```shell
-python manage.py dumpdata metal.metal --indent 2 --format json > fixtures/metal_metal.json
-python manage.py dumpdata stock.stock --indent 2 --format json > fixtures/stock_stock.json
-```
-
-windows環境で作成した場合は、テキストエディタ等で開いて UTF-8 (BOMなし) に変換してください。
+サンプルデータ投入が済んだら、以下のページ等で表示を確かめてください。  
+`http://127.0.0.1:8000/metal/`  
+`http://127.0.0.1:8000/stock/`
 
 ***
 
-## 更新メモ
+## おつかされまでした！！
 
-### 2022/11/27 15:00
-
-- mysql用のライブラリと、関連の設定ファイルを削除しました  
-  Mac, Linux では mysqlclient のインストールが一筋縄ではいかないので、 requirements.txt から削除しました。  
-  関連で、 config/mysql.py を削除しました。  
-  この readme.md からも関連の記述を削除しました。
-
-#### katoさんが当初リリースされた版からの主要な変更点というか、見どころメモ:
-
-| ファイルパス          | 変更点                                          |
-|-----------------|----------------------------------------------|
-| metal/models.py | データベースの列名を変更した。                              |
-| metal/views.py  | 新規にページを追加した。|
-| metal/urls.py   | views.py での変更を反映。                            |
-
-| url          | 変更点
-|--------------|------------------------------------|
-| /metal/_/    | /metal/ の関数 view 版                 |
-| /metal/_buy/ | /metal/buy/ の関数 view 版             |
-| /metal/buy/  | 購入完了時に thanks ページでメッセージを表示するようにした。 |
-| /stock/      | 新規追加。                              |
-| /stock/buy/  | 新規追加。クラスベースのview。                  |
-| /stock/_buy/ | 新規追加。関数ベースのview。                   |
-
+<span style="color: red;">**以上で、テスト環境構築作業は終わりです！**</span>
 ***
 
-### 2022/12/11 08:00
+## <span style="color: red;">**注意! 以下は補足情報ですので、実行の必要はありません！**</span>
 
-- django-debug-toolbar を導入しました。
+### python manage.py runserver をしてもブラウザでページを表示できない場合は？
 
-***
+> 補足:  
+> ブラウザが開かない場合は、ローカルサーバを終了して、ポート番号を変更して再度起動してみてください。  
+> 以下は、ポート 8001 でサーバを起動する例です。
+>
+> ```shell
+> python manage.py runserver 8001
+> ```
+> 上記の例であれば、ブラウザでの動作確認時には、 8000 だったところを 8001 に読み替えて動作確認することになります。  
+> 例: `http://127.0.0.1:8001/metal/'
 
-### 2022/12/19 08:00
+### fixtures ディレクトリ内にある、jsonファイルについて
 
-- 400, 403, 404, 500 エラーのサンプルを追加しました。
-- path 生成時の第二引数カラブルの仕様についての解説用のコードを追加しました。
-
+> データベーステーブルの簡易バックアップを以下のコマンドで生成できます。
+>
+> ```shell
+> python manage.py dumpdata metal.metal --indent 2 --format json > fixtures/metal_metal.json
+> python manage.py dumpdata stock.stock --indent 2 --format json > fixtures/stock_stock.json
+> ```
+> windows環境で作成した場合は、テキストエディタ等で開いて UTF-8 (BOMなし) に変換してください。
