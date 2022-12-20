@@ -1,10 +1,11 @@
 from django.contrib import messages
 from django.http import HttpResponseNotFound, Http404
 from django.shortcuts import resolve_url, render, redirect, get_object_or_404
+from django.views import View
 from django.views.generic import ListView, CreateView, RedirectView
 
 from stock.forms import StockPurchaseForm
-from stock.models import Stock
+from stock.models import Stock, StockPurchase
 
 
 class StockTopView(ListView):
