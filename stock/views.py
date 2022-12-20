@@ -68,3 +68,14 @@ class RedirectToIndex(RedirectView):
 
     def get_redirect_url(self, *args, **kwargs):
         return resolve_url('stock:index')
+
+
+class StockPurchaseList(View):
+    """
+    買取リストを表示する
+    """
+
+    def get(self, request, *args, **kwargs):
+        purchase_list = StockPurchase.objects.all().select_related('stock')
+        context = {'purchase_list': purchase_list}
+        return render(request, 'stock/purchase_list.html', context)
