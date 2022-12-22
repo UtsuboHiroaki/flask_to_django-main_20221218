@@ -1,4 +1,6 @@
-### 2022/12/20
+# H.utsuboのRead.meファイル
+
+## 2022/12/20
 
 - 自分用のReadmeファイルを作成する
 
@@ -8,10 +10,17 @@
 - Markdown All in も追加した
 - まあMarkdownの書き方もおぽえましょう
 
-### 2022/12/21
+## 2022/12/21
 
 - 小川先生の宿題
   - 次回迄に色々いじっていみる
   - error_views.pyが鍵かな？
   - [場所](C:\Mypython\flask_to_django-main_20221218\main\views)
 - デコレータ－の解説動画は少し分からない
+- djangoのフォルダ削除コマンドは便利
+
+## 2022/12/22
+
+- Scraypingのgitのコンフリクトを解消した
+- git.ignoreを追加。今まで余計なファイルを格納しすぎていた
+- 今日はやっとerror_views.pyをいじれた
