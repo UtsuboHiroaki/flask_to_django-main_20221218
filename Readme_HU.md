@@ -40,3 +40,59 @@
 ![画像1](20221224231246.jpg)
 
 - こうやったら遊べるのね
+
+## 2022/12/25
+
+- エクイティスクレイピングの一発版のコ－ドを修正
+- 可能であればgithubで確認いただきたい
+- 一応対応は出来た
+
+## 2022/12/26
+
+- エクイティのは明日投稿してみよう
+- 今日は伊久磨さんの件で小川さんも忙しそう
+
+1. sample01
+
+- C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\servers\basehttp.py
+  - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\base.py
+    - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\exception.py
+      - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\__init__.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\logging.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\staticfiles.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\headers.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\timer.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\middleware.py
+
+
+
+2. 403エラーのサンプル
+
+- C:\mypython\flask_to_django-main_20221218\main\urls.py
+  - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\contrib\staticfiles\handlers.py
+    - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\exception.py
+      - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\__init__.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\logging.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\staticfiles.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\headers.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\timer.py
+        - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\middleware.py
+  - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\utils\deprecation.py
+    - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\exception.py
+  - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\base.py
+    - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\wsgi.py
+      - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\contrib\staticfiles\handlers.py
+  - C:\Users\hutsu\AppData\Local\Programs\Python\Python310\Lib\wsgiref\handlers.py
+    - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\servers\basehttp.py
+
+- C:\mypython\flask_to_django-main_20221218\main\urls.py
+  - C:\mypython\flask_to_django-main_20221218\main\views\error_views.py
+
+- C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\http\response.py
+
+- 400
+  - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\exceptions.py
+
+- 500
+  - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\base.py
+    - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\exception.py
