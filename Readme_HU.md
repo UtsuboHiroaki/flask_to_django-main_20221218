@@ -96,3 +96,10 @@
 - 500
   - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\base.py
     - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\exception.py
+
+
+## 2022/12/27
+
+  - スクレイピングの投稿してみました
+  - 整理するExcelの関数が滅茶苦茶。あれでは使えないよ
+  - 今日は教科書を読むことにする
