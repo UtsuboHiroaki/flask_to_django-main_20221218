@@ -64,8 +64,6 @@
         - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\timer.py
         - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\middleware.py
 
-
-
 2. 403エラーのサンプル
 
 - C:\mypython\flask_to_django-main_20221218\main\urls.py
@@ -97,9 +95,19 @@
   - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\base.py
     - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\exception.py
 
-
 ## 2022/12/27
 
-  - スクレイピングの投稿してみました
-  - 整理するExcelの関数が滅茶苦茶。あれでは使えないよ
-  - 今日は教科書を読むことにする
+- スクレイピングの投稿してみました
+- 整理するExcelの関数が滅茶苦茶。あれでは使えないよ
+- 今日は教科書を読むことにする
+
+## 2022/12/28
+
+- スクレイピングに対する小川先生のコメント
+  - Pyhontnはスネークケース（snake_case）で
+    - 単語と単語の間のスペースに、アンダースコア（_）を置く書き方のことです
+    - 各単語の頭文字を小文字にすることも特徴の一つです
+    - 後は波線がついていた理由が理解出来た
+- 一応公開した以上。自分の作業は別ブランチでやるべきだろうな
+
+
