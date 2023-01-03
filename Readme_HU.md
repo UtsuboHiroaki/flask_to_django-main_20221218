@@ -64,6 +64,8 @@
         - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\panels\timer.py
         - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\debug_toolbar\middleware.py
 
+
+
 2. 403エラーのサンプル
 
 - C:\mypython\flask_to_django-main_20221218\main\urls.py
@@ -95,6 +97,7 @@
   - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\base.py
     - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\core\handlers\exception.py
 
+
 ## 2022/12/27
 
 - スクレイピングの投稿してみました
@@ -110,4 +113,8 @@
     - 後は波線がついていた理由が理解出来た
 - 一応公開した以上。自分の作業は別ブランチでやるべきだろうな
 
+## 2023/01/01
 
+  - 外部で使用するミニノートはまだ不要だね
+  - 実家でも使いたいと思わなかった
+  - それ以前にキーボードを変えないとね
