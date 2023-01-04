@@ -135,4 +135,8 @@
       - 結局dataframeをリストにして加工しているくらいやからね
     - jsonの扱いも再復習しないとね
     - GitHub Copilotも導入やね
+      - これは夜の作業
+  - Djangoの勉強
+    - models.pyを見てみましょう
+      - これは朝の作業
 
