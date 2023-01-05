@@ -140,3 +140,18 @@
     - models.pyを見てみましょう
       - これは朝の作業
 
+## 2023/1/5
+
+- 株のスクレイピングで過去のRead.meを見直す時にリンク先一覧を作成しておきましょう
+- django
+  - models.py
+    - C:\mypython\flask_to_django-main_20221218\venv\Lib\site-packages\django\db\models\__init__.py
+    - 仮想環境の奥深くにあるのね
+    - k- brahama は小川さんのハンドルネ－ムかな
+    - 基本的に書いてあるのはデ－タベ－スの設定くらいなのかな
+    - もう1回urls.pyとviews.pyの教科書復習かな
+      - 検索にamazonの方が便利なら電子版も買いましょう
+-株スクレイピング
+  - 更新作業用にRetryのブランチを作成
+- Copilot
+  - Pycharmにインストール出来ました
