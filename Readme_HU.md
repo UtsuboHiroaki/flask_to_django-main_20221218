@@ -193,4 +193,13 @@
 - 昨日は眼の疲れが出たのでPYTHONは休みました
 - Githubcooltをvscodeに導入してみると文章予測もしてくれて面白い
   - 少し鬱陶しい面もあるが
+- EDINET_API_10.pyの改修
+  - 今のdiffer.csvのでデ－タでanualがあるのは2022/6/28
+    - month = 7
+    - date.today() + relativedelta(months=-6))
+    - 上記でtest
+
+## 2024/1/13
+
+- 前回のセミナ－からの報告を書くだけでも一苦労やね
   
